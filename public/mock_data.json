@@ -1,0 +1,110 @@
+{
+    "currentUser": {
+        "id": "user_001",
+        "role": "SUPER_ADMIN"
+    },
+    "users": [
+        {
+            "id": "user_001",
+            "username": "superadmin",
+            "name": "System Administrator",
+            "role": "SUPER_ADMIN",
+            "status": "ACTIVE",
+            "avatar": "https://i.pravatar.cc/150?u=super"
+        },
+        {
+            "id": "user_002",
+            "username": "somwang_loan",
+            "name": "สมหวัง เงินด่วน (Admin A)",
+            "role": "ADMIN",
+            "status": "ACTIVE",
+            "avatar": "https://i.pravatar.cc/150?u=somwang",
+            "plan": "PREMIUM"
+        },
+        {
+            "id": "user_003",
+            "username": "jaedang_money",
+            "name": "เจ้แดง ปล่อยกู้ (Admin B)",
+            "role": "ADMIN",
+            "status": "ACTIVE",
+            "avatar": "https://i.pravatar.cc/150?u=dang",
+            "plan": "BASIC"
+        }
+    ],
+    "members": [
+        {
+            "id": "mem_001",
+            "adminId": "user_002",
+            "name": "นาย สมชาย ใจดี",
+            "phone": "081-111-1111",
+            "loanAmount": 10000,
+            "interestRate": 0.4,
+            "interestType": "DAILY",
+            "totalInstallments": 24,
+            "paidInstallments": 2,
+            "status": "ACTIVE",
+            "loanDate": "2026-02-01T10:00:00Z"
+        },
+        {
+            "id": "mem_002",
+            "adminId": "user_002",
+            "name": "นางสาว มานี มีแชร์",
+            "phone": "089-999-9999",
+            "loanAmount": 5000,
+            "interestRate": 25,
+            "interestType": "FIXED",
+            "totalInstallments": 10,
+            "paidInstallments": 0,
+            "status": "PENDING_APPROVAL",
+            "loanDate": "2026-02-05T14:30:00Z"
+        },
+        {
+            "id": "mem_003",
+            "adminId": "user_003",
+            "name": "นาย กล้าหาญ ชาญชัย",
+            "phone": "090-555-5555",
+            "loanAmount": 20000,
+            "interestRate": 1.5,
+            "interestType": "MONTHLY",
+            "totalInstallments": 12,
+            "paidInstallments": 5,
+            "status": "OVERDUE",
+            "loanDate": "2025-12-15T09:00:00Z"
+        }
+    ],
+    "transactions": [
+        {
+            "id": "tx_101",
+            "memberId": "mem_001",
+            "adminId": "user_002",
+            "amount": 500,
+            "type": "PAYMENT",
+            "status": "APPROVED",
+            "slipUrl": "/images/slip-mock-1.jpg",
+            "createdAt": "2026-02-02T18:00:00Z",
+            "note": "งวดที่ 1"
+        },
+        {
+            "id": "tx_102",
+            "memberId": "mem_001",
+            "adminId": "user_002",
+            "amount": 500,
+            "type": "PAYMENT",
+            "status": "PENDING",
+            "slipUrl": "/images/slip-mock-2.jpg",
+            "createdAt": "2026-02-06T08:30:00Z",
+            "note": "งวดที่ 2 รอยืนยัน"
+        },
+        {
+            "id": "tx_103",
+            "memberId": "mem_003",
+            "adminId": "user_003",
+            "amount": 2000,
+            "type": "PAYMENT",
+            "status": "REJECTED",
+            "slipUrl": "/images/slip-mock-3.jpg",
+            "createdAt": "2026-02-05T20:15:00Z",
+            "note": "สลิปซ้ำ"
+        }
+    ]
+}
