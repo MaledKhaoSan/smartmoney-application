@@ -48,7 +48,7 @@ export async function loginAction(formData: FormData) {
     return { error: 'อีเมล/ชื่อผู้ใช้งาน หรือ รหัสผ่านไม่ถูกต้อง' };
   }
 
-  redirect('/dashboard');
+  redirect('/organization');
 }
 
 /**

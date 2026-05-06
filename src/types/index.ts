@@ -27,6 +27,7 @@ export interface Member {
     paidInstallments: number;
     status: MemberStatus;
     loanDate: string; // ISO Date
+    managementFee?: number;
 }
 
 export interface Transaction {
@@ -37,6 +38,7 @@ export interface Transaction {
     type: TransactionType;
     status: TransactionStatus;
     slipUrl?: string;
+    paymentMethod?: 'CASH' | 'BANKING';
     createdAt: string; // ISO Date
     note?: string;
 }

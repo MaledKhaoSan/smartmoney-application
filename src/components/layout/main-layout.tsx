@@ -17,25 +17,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { MobileNav } from "@/components/layout/mobile-nav"
 import { cn } from "@/lib/utils"
+import mockData from "@/lib/mock_data.json"
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
     const { initialize, isInitialized, currentUser } = useAppStore()
     const isMobile = useIsMobile()
 
     useEffect(() => {
-        if (!isInitialized) {
-            fetch('/mock_data.json')
-                .then(res => res.json())
-                .then(data => {
-                    initialize(data)
-                })
-                .catch(err => console.error("Failed to load mock data", err))
-        }
-    }, [initialize, isInitialized])
+        // Initialize or update store whenever mock data changes (HMR)
+        initialize(mockData as any)
+    }, [initialize])
 
-    // Don't render layout until initialized to avoid flashes (or handle loading state)
+    // Render a simple loading state if not yet initialized
     if (!isInitialized) {
-        return <div className="flex h-screen w-full items-center justify-center">Loading...</div>
+        return <div className="flex h-screen w-full items-center justify-center">Loading Data...</div>
     }
 
     return (
@@ -73,7 +68,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                         )}
                     </header>
                 )}
-                <main className="flex flex-1 flex-col gap-4 p-4">
+                <main className="bg-[#FAFAFC] flex flex-1 flex-col gap-4 lg:px-4">
                     {children}
                 </main>
             </SidebarInset>

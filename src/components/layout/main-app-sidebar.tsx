@@ -46,7 +46,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       isActive: pathname.includes("members"),
       items: [
         { title: "ภาพรวมลูกหนี้", url: "/organization/members" },
-        { title: "เพิ่มลูกหนี้ใหม่", url: "/organization/members/new" },
+        { title: "เพิ่มลูกหนี้ใหม่", url: "/organization/members?action=add" },
       ]
     },
     {
