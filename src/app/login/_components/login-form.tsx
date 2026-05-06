@@ -18,6 +18,10 @@ export function LoginForm({
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [identifier, setIdentifier] = useState("")
+  const [password, setPassword] = useState("")
+
+  const isFormValid = identifier.trim() !== "" && password.trim() !== ""
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -37,7 +41,7 @@ export function LoginForm({
   return (
     <div className={cn("w-full bg-white min-h-svh md:min-h-min md:max-w-md md:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col relative", className)} {...props}>
       {/* Top Header with Wave */}
-      <div className="relative h-[30svh] min-h-[200px] md:h-48 md:min-h-[192px] bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600">
+      <div className="relative h-[30svh] min-h-[200px] md:h-48 md:min-h-[192px] bg-gradient-to-br from-primary/70 via-primary/90 to-primary">
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white pb-8">
           {/* Logo */}
           <div className="mb-2">
@@ -74,8 +78,10 @@ export function LoginForm({
               type="text"
               placeholder="ชื่อผู้ใช้ / อีเมล / เบอร์โทร"
               required
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
               disabled={loading}
-              className="rounded-full bg-gray-50/80 border-gray-100 h-14 px-6 text-sm placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:bg-white shadow-inner"
+              className="rounded-full bg-gray-50/80 border-gray-100 h-14 px-6 text-sm placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-primary focus-visible:bg-white shadow-inner"
             />
           </div>
 
@@ -86,8 +92,10 @@ export function LoginForm({
               type={showPassword ? "text" : "password"}
               placeholder="รหัสผ่าน"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
-              className="rounded-full bg-gray-50/80 border-gray-100 h-14 pl-6 pr-12 text-sm placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:bg-white shadow-inner"
+              className="rounded-full bg-gray-50/80 border-gray-100 h-14 pl-6 pr-12 text-sm placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-primary focus-visible:bg-white shadow-inner"
             />
             <button
               type="button"
@@ -100,27 +108,27 @@ export function LoginForm({
 
           <div className="flex items-center justify-between px-3 mt-1 mb-2">
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-500">
-              <input type="checkbox" className="rounded-full border-gray-300 text-blue-600 focus:ring-blue-500 w-4 h-4" />
+              <input type="checkbox" className="rounded-full border-gray-300 text-primary focus:ring-primary w-4 h-4" />
               จดจำฉันไว้
             </label>
-            <a href="#" className="text-sm text-gray-500 hover:text-blue-600">
+            <a href="#" className="text-sm text-gray-500 hover:text-primary">
               ลืมรหัสผ่าน?
             </a>
           </div>
 
           <Button
             type="submit"
-            disabled={loading}
+            disabled={loading || !isFormValid}
             variant="outline"
-            className="w-full rounded-full h-14 text-lg font-medium border-2 border-blue-500 text-blue-600 hover:bg-blue-50 bg-white"
+            className="w-full rounded-full h-14 text-lg font-medium border-2 border-primary text-primary hover:bg-primary/10 bg-white"
           >
             {loading && <IconLoader2 className="size-5 animate-spin mr-2" />}
             {loading ? "กำลังเข้าสู่ระบบ..." : "เข้าสู่ระบบ"}
           </Button>
 
-          <div className="text-center mt-3 text-sm text-gray-500">
-            ยังไม่มีบัญชีใช่ไหม? <a href="#" className="text-blue-600 hover:underline font-medium">สมัครสมาชิก</a>
-          </div>
+          {/* <div className="text-center mt-3 text-sm text-gray-500">
+            ยังไม่มีบัญชีใช่ไหม? <a href="#" className="text-primary hover:text-primary/80 hover:underline font-medium">สมัครสมาชิก</a>
+          </div> */}
         </form>
       </div>
     </div>
