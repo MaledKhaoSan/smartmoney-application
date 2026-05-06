@@ -63,7 +63,7 @@ const mockTransactions = [
 
 export function TransactionTable() {
     return (
-        <Card className="border-none shadow-xl bg-white/80 backdrop-blur-md">
+        <Card className="border-none  bg-white/80 backdrop-blur-md">
             <CardHeader className="pb-2">
                 <CardTitle className="text-xl font-bold flex items-center gap-3 text-slate-800">
                     <div className="p-2 bg-primary/10 rounded-lg">

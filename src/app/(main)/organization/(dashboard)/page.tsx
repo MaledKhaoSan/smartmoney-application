@@ -78,12 +78,12 @@ export default function AdminDashboard() {
     const isMobile = useIsMobile()
 
     return (
-        <div className="space-y-6 pb-10">
-
-            <div className="px-2 md:px-0 py-5 flex flex-row items-center justify-between gap-2">
-                <div className="flex flex-col items-start justify-between">
-                    <h2 className="text-xl md:text-3xl font-bold tracking-tight">ภาพรวมธุรกรรม</h2>
-                    <p className="text-xs md:text-base text-muted-foreground line-clamp-1 md:line-clamp-none">
+        <div className="space-y-6 pb-10 relative">
+            <div className="z-10 top-0 w-full h-72 bg-linear-180 from-primary to-[#FAFAFC] absolute overflow-hidden pointer-events-none"></div>
+            <div className="z-20 relative bg-transparent px-2 md:px-0 py-5 flex flex-row items-center justify-between gap-2">
+                <div className="bg-transparent flex flex-col items-start justify-between">
+                    <h2 className="text-white text-xl md:text-3xl font-bold tracking-tight">ภาพรวมธุรกรรม</h2>
+                    <p className="text-white bg-transparent text-xs md:text-base text-muted-foreground line-clamp-1 md:line-clamp-none">
                         สรุปสถานะการชำระเงินและแนวโน้มรายได้
                     </p>
                 </div>
@@ -91,7 +91,7 @@ export default function AdminDashboard() {
                 {isMobile && (
                     <Sheet open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                         <SheetTrigger asChild>
-                            <Button variant="ghost" size="xs" className="flex rounded-full items-center gap-2 border-primary/20 text-primary hover:bg-primary/5">
+                            <Button variant="secondary" size="xs" className="flex rounded-full items-center gap-2 border-primary/20 text-primary hover:bg-primary/5">
                                 <IconChartBar className="size-4" />
                                 <p className="text-xs">สรุปกราฟวิเคราะห์</p>
                             </Button>
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
             </div>
 
             {!isMobile && (
-                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div className="z-20 relative grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                     <div className="lg:col-span-1">
                         <PaymentStatusPieChart
                             collected={receivedAmount}
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
                 </div>
             )}
 
-            <div className="grid gap-3 grid-cols-2 lg:grid-cols-4 pt-4">
+            <div className="z-20 relative grid gap-3 grid-cols-2 lg:grid-cols-4 pt-4">
                 {stats.map((stat) => (
                     <Card key={stat.title} className="hover:shadow-md transition-all border-none bg-white/60 backdrop-blur-sm">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
                 ))}
             </div>
 
-            <div className="grid gap-6 xl:grid-cols-2">
+            <div className="z-20 grid gap-6 xl:grid-cols-2">
                 {/* Recent Members */}
                 <Card className="border-none shadow-sm bg-white/60 backdrop-blur-sm overflow-hidden">
                     <CardHeader className="pb-3">
