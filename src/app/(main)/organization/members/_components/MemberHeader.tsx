@@ -15,7 +15,7 @@ interface MemberHeaderProps {
 
 export function MemberHeader({ member, onBack }: MemberHeaderProps) {
     return (
-        <div className="flex items-center gap-4">
+        <div className="flex flex-row items-start gap-4">
             <Button variant="ghost" size="icon" onClick={onBack}>
                 <IconArrowLeft className="h-5 w-5" />
             </Button>

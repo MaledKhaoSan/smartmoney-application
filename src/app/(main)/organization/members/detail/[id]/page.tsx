@@ -193,7 +193,7 @@ export default function MemberDetailPage() {
     } satisfies ChartConfig
 
     return (
-        <div className="space-y-6 pb-10 w-full relative overflow-x-hidden">
+        <div className="lg:px-4 lg:pt-6 space-y-6 pb-10 w-full relative overflow-x-hidden">
             {/* Desktop View */}
             <div className="hidden lg:block space-y-6">
                 <MemberHeader member={member} onBack={() => router.back()} />

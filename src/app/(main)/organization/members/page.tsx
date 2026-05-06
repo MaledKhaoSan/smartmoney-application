@@ -46,7 +46,7 @@ export default function MemberManagementPage() {
     }
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 lg:px-4">
             <div className="px-2 md:px-0 py-5 flex flex-row items-center justify-between gap-2">
                 <div className="flex flex-col items-start justify-between">
                     <h2 className="text-xl md:text-3xl font-bold tracking-tight">รายชื่อลูกหนี้</h2>

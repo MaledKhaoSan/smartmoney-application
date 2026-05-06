@@ -68,7 +68,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                         )}
                     </header>
                 )}
-                <main className="bg-[#FAFAFC] flex flex-1 flex-col gap-4 lg:px-4">
+                <main className="bg-[#FAFAFC] flex flex-1 flex-col gap-4">
                     {children}
                 </main>
             </SidebarInset>
